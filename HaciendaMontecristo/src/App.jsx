@@ -1,96 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import swaggerIcon from './assets/swagger-api-icon.svg'
-import TrelloIcon from './assets/trello-logo-icon.svg'
-import './App.css'
+import { Routes, Route } from 'react-router-dom'
+import LoginPage from './pages/LoginPage'
+import HomePage from './pages/HomePage'
+import ClienteProductosPage from './pages/ClienteProductosPage'
+import CarritoPage from './pages/CarritoPage'
+import ConfirmarPedidoPage from './pages/ConfirmarPedidoPage'
+import VendedorPanelPage from './pages/VendedorPanelPage'
+import PedidosAsignadoPage from './pages/PedidosAsignadoPage'
+import AdminBodegaPage from './pages/AdminBodegaPage'
+import RevisionCancelacionPage from './pages/RevisionCancelacionPage'
+import AdminSistemaClientesPage from './pages/AdminSistemaClientesPage'
+import GestionUsuariosPage from './pages/GestionUsuariosPage'
+import AsignarPedidosPage from './pages/AsignarPedidosPage'
+import ReportesPage from './pages/ReportesPage'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Proyecto Hacienda Monte Cristo</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <Routes>
+      <Route path="/" element={<LoginPage />} />
+      <Route path="/home" element={<HomePage />} />
 
-      <div className="ticks"></div>
+      <Route path="/cliente/productos" element={<ClienteProductosPage />} />
+      <Route path="/cliente/carrito" element={<CarritoPage />} />
+      <Route path="/cliente/confirmar-pedido" element={<ConfirmarPedidoPage />} />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={swaggerIcon} alt="Swagger logo" />
-                Swagger
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <ul>
-            <li>
-              <a href="https://github.com/rajuria/HaciendaMonteCristo-FrontEnd/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub - Front End
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/rajuria/HaciendaMonteCristo-BackEnd" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub - Back End
-              </a>
-            </li>
-            <li>
-              <a href="https://trello.com/b/TEdEdWl3/ux-473-hacienda-montecristo" target="_blank">
-                <img className="button-icon" src={TrelloIcon} alt="Trello logo" />
-                Trello
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <Route path="/vendedor" element={<VendedorPanelPage />} />
+      <Route path="/vendedor/pedidos" element={<PedidosAsignadoPage />} />
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      <Route path="/admin-bodega" element={<AdminBodegaPage />} />
+      <Route path="/admin-bodega/cancelaciones" element={<RevisionCancelacionPage />} />
+
+      <Route path="/admin-sistema/clientes" element={<AdminSistemaClientesPage />} />
+      <Route path="/admin-sistema/usuarios" element={<GestionUsuariosPage />} />
+      <Route path="/admin-sistema/asignar-pedidos" element={<AsignarPedidosPage />} />
+      <Route path="/admin-sistema/reportes" element={<ReportesPage />} />
+    </Routes>
   )
 }
 

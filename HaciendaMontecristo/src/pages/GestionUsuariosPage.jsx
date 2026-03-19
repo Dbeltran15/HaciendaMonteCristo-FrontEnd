@@ -1,0 +1,63 @@
+import { Link } from 'react-router-dom'
+
+const usuarios = [
+  ['Juan Pérez', 'vendedor@hacienda.com', 'Vendedor', 'Inactivo'],
+  ['María García', 'vendedor2@hacienda.com', 'Vendedor', 'Inactivo'],
+  ['Carlos López', 'bodega@hacienda.com', 'Bodega', 'Inactivo'],
+  ['Ana Martínez', 'admin-bodega@hacienda.com', 'Admin Bodega', 'Inactivo'],
+  ['Roberto Sánchez', 'admin@hacienda.com', 'Admin', 'Inactivo'],
+]
+
+export default function GestionUsuariosPage() {
+  return (
+    <div className="page-shell">
+      <header className="topbar">
+        <div className="topbar-inner">
+          <div style={{ fontWeight: 700 }}>
+            <Link to="/admin-sistema/clientes">← Volver a Clientes</Link>
+          </div>
+        </div>
+      </header>
+
+      <main className="container">
+        <div className="section-title-row">
+          <div>
+            <h2 className="page-title">Gestión de Usuarios</h2>
+            <p className="page-subtitle">Administre usuarios del sistema</p>
+          </div>
+
+          <button className="btn btn-purple">＋ Nuevo Usuario</button>
+        </div>
+
+        <div className="card">
+          <h3 className="section-title">👥 Usuarios del Sistema</h3>
+
+          <div className="table-wrap">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Email</th>
+                  <th>Rol</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                {usuarios.map(([nombre, email, rol, estado]) => (
+                  <tr key={email}>
+                    <td>{nombre}</td>
+                    <td>{email}</td>
+                    <td>{rol}</td>
+                    <td><span className="badge badge-gray">{estado}</span></td>
+                    <td><button className="btn btn-sm">Editar</button></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  )
+}
