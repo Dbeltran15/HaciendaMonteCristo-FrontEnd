@@ -10,15 +10,18 @@ export default function AdminSistemaClientesPage() {
 
   return (
     <div className="page-shell">
-      {/* HEADER */}
       <header className="topbar">
         <div className="topbar-inner">
           <div className="brand purple">
             <h1>Hacienda Montecristo</h1>
-            <small>Administrador</small>
+            <small>Administrador: Roberto Sánchez</small>
           </div>
 
           <div className="top-actions">
+            <Link to="/admin-sistema/clientes">
+              <button className="btn btn-purple">Clientes</button>
+            </Link>
+
             <Link to="/admin-sistema/usuarios">
               <button className="btn">Usuarios</button>
             </Link>
@@ -31,6 +34,10 @@ export default function AdminSistemaClientesPage() {
               <button className="btn">Reportes</button>
             </Link>
 
+            <Link to="/admin-sistema/mantenimiento">
+              <button className="btn">Mantenimiento</button>
+            </Link>
+
             <button className="btn" onClick={() => navigate('/home')}>
               ← Volver al Inicio
             </button>
@@ -38,7 +45,6 @@ export default function AdminSistemaClientesPage() {
         </div>
       </header>
 
-      {/* CONTENIDO */}
       <main className="container">
         <h2 className="page-title">Gestión de Clientes</h2>
         <p className="page-subtitle">Administre las cuentas de clientes</p>
@@ -76,9 +82,7 @@ export default function AdminSistemaClientesPage() {
                       <span className="badge badge-gray">{estado}</span>
                     </td>
                     <td>
-                      <button className="btn btn-green btn-sm">
-                        ✔ Aprobar
-                      </button>
+                      <button className="btn btn-green btn-sm">✔ Aprobar</button>
                     </td>
                   </tr>
                 ))}

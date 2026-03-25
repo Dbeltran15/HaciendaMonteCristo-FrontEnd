@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const pedidos = [
   { id: '#p1', cliente: 'Sofía Hernández', fecha: '3/2/2026', total: 'L. 300.00', estado: 'pendiente' },
@@ -6,12 +6,41 @@ const pedidos = [
 ]
 
 export default function ReportesPage() {
+  const navigate = useNavigate()
+
   return (
     <div className="page-shell">
       <header className="topbar">
         <div className="topbar-inner">
-          <div style={{ fontWeight: 700 }}>
-            <Link to="/admin-sistema/clientes">← Volver a Clientes</Link>
+          <div className="brand purple">
+            <h1>Hacienda Montecristo</h1>
+            <small>Administrador: Roberto Sánchez</small>
+          </div>
+
+          <div className="top-actions">
+            <Link to="/admin-sistema/clientes">
+              <button className="btn">Clientes</button>
+            </Link>
+
+            <Link to="/admin-sistema/usuarios">
+              <button className="btn">Usuarios</button>
+            </Link>
+
+            <Link to="/admin-sistema/asignar-pedidos">
+              <button className="btn">Asignar Pedidos</button>
+            </Link>
+
+            <Link to="/admin-sistema/reportes">
+              <button className="btn btn-purple">Reportes</button>
+            </Link>
+
+            <Link to="/admin-sistema/mantenimiento">
+              <button className="btn">Mantenimiento</button>
+            </Link>
+
+            <button className="btn" onClick={() => navigate('/home')}>
+              ← Volver al Inicio
+            </button>
           </div>
         </div>
       </header>

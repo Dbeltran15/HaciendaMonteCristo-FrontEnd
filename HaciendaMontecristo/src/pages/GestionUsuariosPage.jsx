@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const usuarios = [
   ['Juan Pérez', 'vendedor@hacienda.com', 'Vendedor', 'Inactivo'],
@@ -9,12 +9,41 @@ const usuarios = [
 ]
 
 export default function GestionUsuariosPage() {
+  const navigate = useNavigate()
+
   return (
     <div className="page-shell">
       <header className="topbar">
         <div className="topbar-inner">
-          <div style={{ fontWeight: 700 }}>
-            <Link to="/admin-sistema/clientes">← Volver a Clientes</Link>
+          <div className="brand purple">
+            <h1>Hacienda Montecristo</h1>
+            <small>Administrador: Roberto Sánchez</small>
+          </div>
+
+          <div className="top-actions">
+            <Link to="/admin-sistema/clientes">
+              <button className="btn">Clientes</button>
+            </Link>
+
+            <Link to="/admin-sistema/usuarios">
+              <button className="btn btn-purple">Usuarios</button>
+            </Link>
+
+            <Link to="/admin-sistema/asignar-pedidos">
+              <button className="btn">Asignar Pedidos</button>
+            </Link>
+
+            <Link to="/admin-sistema/reportes">
+              <button className="btn">Reportes</button>
+            </Link>
+
+            <Link to="/admin-sistema/mantenimiento">
+              <button className="btn">Mantenimiento</button>
+            </Link>
+
+            <button className="btn" onClick={() => navigate('/home')}>
+              ← Volver al Inicio
+            </button>
           </div>
         </div>
       </header>
@@ -43,6 +72,7 @@ export default function GestionUsuariosPage() {
                   <th>Acciones</th>
                 </tr>
               </thead>
+
               <tbody>
                 {usuarios.map(([nombre, email, rol, estado]) => (
                   <tr key={email}>
